@@ -1,5 +1,6 @@
 $keyboard_bg : rgb(51, 51, 51);
 $keyboard_text : white;
+$terminal_green: #7fbf7f;
 $repo_link_text: #4078C0;
 $list_text: #888;
 $fullname_text: rgb(51, 51, 51);
@@ -16,6 +17,26 @@ body {
   padding: 4px;
   border-radius: 3px;
   margin: 0;
+}
+
+#input_username {
+  border: 1px solid black;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#lookup_label {
+  padding: 7px 4px;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#lookup_button {
+  background-color: $keyboard_bg;
+  color: $keyboard_text;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#lookup_button:hover {
+  background-color: $terminal_green;
 }
 
 #github_fullname {
