@@ -7,8 +7,8 @@ var buildRepoContent = function(query, repo) {
       '<span class=repo_name>' + repo.name + '</span></a>' +
       '<ul>' +
         '<li>' + repo.language + '</li>' +
-        '<li>Created: ' + repo.created_at + '</li>' +
-        '<li>Last Updated: ' + repo.updated_at + '</li>' +
+        '<li>Created: ' + moment(repo.created_at).format('lll') + '</li>' +
+        '<li>Updated: ' + moment(repo.updated_at).format('lll') + '</li>' +
       '</li>' +
     '</div>'
   );
