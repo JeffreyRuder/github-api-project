@@ -25,10 +25,10 @@ $(document).ready(function(){
     $.get(query.usernameURL(), function(response) {
       if (response.name) {
         $('.dynamic_content').append(
-          '<h1>' + response.name + '</h1>'
+          '<h1 id="github_fullname">' + response.name + '</h1>'
         );
       }
-      $('.dynamic_content').append('<h2>' + query.username + '<h2>');
+      $('.dynamic_content').append('<h2 id="github_username">' + query.username + '</h2>');
     }).fail(function() {
       $('.dynamic_content').append('<h2>No GitHub profile found for that username.<h2>');
     });

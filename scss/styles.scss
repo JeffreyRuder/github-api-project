@@ -1,0 +1,61 @@
+$keyboard_bg : rgb(51, 51, 51);
+$keyboard_text : white;
+$repo_link_text: #4078C0;
+$list_text: #888;
+$fullname_text: rgb(51, 51, 51);
+$username_text: rgb(102, 102, 102);
+
+body {
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.keyboard {
+  background-color: $keyboard_bg;
+  color: $keyboard_text;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  padding: 4px;
+  border-radius: 3px;
+  margin: 0;
+}
+
+#github_fullname {
+  font-size: 26px;
+  font-weight: bold;
+  color: $fullname_text;
+  line-height: 30px;
+  margin: 0;
+}
+
+
+#github_username {
+  font-size: 20px;
+  font-weight: 300;
+  color: $username_text;
+  line-height: 24px;
+  word-wrap: break-word;
+  margin: 0 0 20px 0;
+}
+
+.repo {
+  padding-left: 0;
+
+  a {
+    color: $repo_link_text;
+  }
+
+  .repo_name {
+    font-size: 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-left: 0;
+
+    li {
+      color: $list_text;
+    }
+
+  }
+
+}
