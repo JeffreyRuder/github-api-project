@@ -1,5 +1,19 @@
 var Query = require('./../js/query.js');
 
+var buildRepoContent = function(query, repo) {
+  $('.dynamic_content').append(
+    '<div class="repo col-sm-4">' +
+      '<a href=https://github.com/' + query.username + '/' + repo.name + '>' +
+      '<span class=repo_name>' + repo.name + '</span></a>' +
+      '<ul>' +
+        '<li>' + repo.language + '</li>' +
+        '<li>Created: ' + repo.created_at + '</li>' +
+        '<li>Last Updated: ' + repo.updated_at + '</li>' +
+      '</li>' +
+    '</div>'
+  );
+};
+
 $(document).ready(function(){
 
   $('#input_form').on('submit', function(event) {
@@ -9,29 +23,22 @@ $(document).ready(function(){
     var query = new Query(input);
 
     $.get(query.usernameURL(), function(response) {
-      $('.dynamic_content').append('<h1>' + query.username + '<h1>');
       if (response.name) {
         $('.dynamic_content').append(
-          '<h2>' + response.name + '</h2>'
+          '<h1>' + response.name + '</h1>'
         );
       }
+      $('.dynamic_content').append('<h2>' + query.username + '<h2>');
+    }).fail(function() {
+      $('.dynamic_content').append('<h2>No GitHub profile found for that username.<h2>');
     });
 
     $.get(query.reposURL(), function(response) {
       for (var i = 0; i < response.length; i++) {
-        console.log(response[i]);
-        $('.dynamic_content').append(
-          '<div class="repo col-sm-4">' +
-            '<a href=https://github.com/' + 'daneden' + '/' + response[i].name + '>' +
-            '<span class=repo_name>' + response[i].name + '</span></a>' +
-            '<ul>' +
-              '<li>' + response[i].language + '</li>' +
-              '<li>Created: ' + response[i].created_at + '</li>' +
-              '<li>Last Updated: ' + response[i].updated_at + '</li>' +
-            '</li>' +
-          '</div>'
-        );
+        buildRepoContent(query, response[i]);
       }
+    }).fail(function() {
+      $('.dynamic_content').append('<h2>No repositories found for that username.<h2>');
     });
 
   });
