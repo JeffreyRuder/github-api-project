@@ -1,5 +1,5 @@
 var Query = function (username) {
-  this.username = username;
+  this.username = username.trim();
 };
 
 Query.prototype.usernameURL = function () {
